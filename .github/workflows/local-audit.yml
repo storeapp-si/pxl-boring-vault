@@ -1,4 +1,3 @@
-
 name: Local Solidity Build
 
 on:
@@ -39,4 +38,4 @@ jobs:
           test "$(git rev-parse HEAD)" = "2843ac873718e869ac138278f9f4ee3c12736544"
 
       - name: Build Solidity contracts
-        run: forge build --use 0.8.21
+        run: FOUNDRY_AUTO_DETECT_SOLC=true forge build
