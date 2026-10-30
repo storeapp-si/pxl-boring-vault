@@ -39,3 +39,11 @@ jobs:
 
       - name: Build Solidity contracts
         run: FOUNDRY_AUTO_DETECT_SOLC=true forge build
+
+      - name: Test PAXG oracle and dynamic fee modules
+        run: |
+          FOUNDRY_AUTO_DETECT_SOLC=true forge test --match-path 'test/(PaxgXauRateProvider|PaxgyDynamicDepositFeeModule|PaxgyDynamicWithdrawalFeeModule)\\.t\\.sol' -vv
+
+      - name: Test local WithdrawQueue unit and integration suites
+        run: |
+          FOUNDRY_AUTO_DETECT_SOLC=true forge test --match-path 'test/withdrawQueue/.*\\.t\\.sol' -vv
